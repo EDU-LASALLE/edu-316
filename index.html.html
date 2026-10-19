@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDU-315 | Historia de la Educación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        vino: {
+                            50: '#fdf3f4',
+                            100: '#fbe5e9',
+                            200: '#f5cdd5',
+                            300: '#efa2b1',
+                            400: '#e36e85',
+                            500: '#d1435f',
+                            600: '#b82845',
+                            700: '#9b1c35', // Color guindo principal
+                            800: '#821a30',
+                            900: '#70192d', // Color guindo oscuro
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(155, 28, 53, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            background: rgba(253, 243, 244, 0.95); /* Tono vino claro al pasar el cursor */
+            border-color: rgba(155, 28, 53, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(155, 28, 53, 0.2);
+        }
+        /* Clases para animación al hacer scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <nav class="bg-vino-900 text-white sticky top-0 z-50 shadow-lg transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-3">
+                    <div class="p-0">
+    <img src="bolivia.png"
+         alt="Logo La Salle Bolivia"
+         class="h-8 md:h-10 w-auto object-contain">
+</div>
+                    <span class="font-bold text-xl tracking-wide hidden sm:block ml-2">EDU-315</span>
+                </div>
+                <div class="hidden md:flex space-x-2">
+                    <a href="#inicio" class="hover:bg-vino-800 px-3 py-2 rounded-md transition duration-300">Inicio</a>
+                    <a href="#docente" class="hover:bg-vino-800 px-3 py-2 rounded-md transition duration-300">Docente</a>
+                    <a href="#competencias" class="hover:bg-vino-800 px-3 py-2 rounded-md transition duration-300">Competencias</a>
+                    <a href="#temario" class="hover:bg-vino-800 px-3 py-2 rounded-md transition duration-300">Temario</a>
+                    <a href="#evaluacion" class="hover:bg-vino-800 px-3 py-2 rounded-md transition duration-300">Evaluación</a>
+                    <a href="#biblioteca" class="hover:bg-vino-800 px-3 py-2 rounded-md transition duration-300">Biblioteca</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="inicio" class="relative bg-vino-800 text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <!-- Patrón de fondo abstracto -->
+            <svg class="h-full w-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                <defs>
+                    <pattern id="pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M0 40L40 0H20L0 20M40 40V20L20 40" fill="currentColor" opacity="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#pattern)"></rect>
+            </svg>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 flex flex-col items-center text-center">
+            <span class="px-4 py-1 bg-vino-700 rounded-full text-sm font-semibold mb-2 border border-vino-600 shadow-sm hover:bg-vino-600 transition cursor-default">
+                Universidad La Salle Bolivia
+            </span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 hover:scale-105 transition duration-500">
+                Historia de la Educación <br class="hidden md:block"> en Bolivia y el Mundo
+            </h1>
+            <p class="text-lg md:text-xl max-w-3xl text-vino-100 mb-10">
+                Analiza críticamente la realidad educativa nacional e internacional desde una perspectiva histórica, filosófica, sociocultural y ética.
+            </p>
+           
+            <div class="mt-16 w-full max-w-5xl mx-auto bg-white/10 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-vino-600/30 border border-white/20 text-white">
+                <div class="p-6 text-center hover:bg-white/20 transition duration-300">
+                    <p class="text-xs text-vino-200 uppercase tracking-wide font-semibold mb-1">Sigla / Prerrequisito</p>
+                    <p class="text-xl md:text-2xl font-bold">EDU-315 / Admisión</p>
+                </div>
+                <div class="p-6 text-center hover:bg-white/20 transition duration-300">
+                    <p class="text-xs text-vino-200 uppercase tracking-wide font-semibold mb-1">Horas Semestre</p>
+                    <p class="text-xl md:text-2xl font-bold">120 hrs</p>
+                </div>
+                <div class="p-6 text-center hover:bg-white/20 transition duration-300">
+                    <p class="text-xs text-vino-200 uppercase tracking-wide font-semibold mb-1">Teoría Presencial</p>
+                    <p class="text-xl md:text-2xl font-bold">2 hrs / sem.</p>
+                </div>
+                <div class="p-6 text-center hover:bg-white/20 transition duration-300">
+                    <p class="text-xs text-vino-200 uppercase tracking-wide font-semibold mb-1">Práctica Independiente</p>
+                    <p class="text-xl md:text-2xl font-bold">4 hrs / sem.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="docente" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <!-- Foto del Docente -->
+                <div class="w-full lg:w-1/3 flex justify-center reveal">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-vino-700 rounded-2xl transform translate-x-4 translate-y-4 opacity-50 group-hover:translate-x-2 group-hover:translate-y-2 transition duration-300"></div>
+                        <img src="martha.jpeg" onerror="this.src='https://placehold.co/400x500/9b1c35/ffffff?text=Foto+Docente'" alt="Lic. Martha Bohórquez" class="relative z-10 rounded-2xl shadow-xl object-cover w-72 h-80 md:w-80 md:h-96 border-4 border-white group-hover:scale-[1.02] transition duration-300">
+                    </div>
+                </div>
+                
+                <!-- Info del Docente y Justificación -->
+                <div class="w-full lg:w-2/3 reveal">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-2">Docente de la Materia</h2>
+                    <h3 class="text-2xl text-vino-700 font-semibold mb-6">Lic. Martha Bohórquez</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-vino-50 transition duration-300">
+                            <i class="fa-solid fa-graduation-cap text-vino-600 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Formación</h4>
+                                <p class="text-gray-600 text-sm">Licenciada en Ciencias Sociales</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-vino-50 transition duration-300">
+                            <i class="fa-solid fa-magnifying-glass text-vino-600 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Áreas de Investigación</h4>
+                                <p class="text-gray-600 text-sm">Antropología e Historia</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-vino-50 transition duration-300">
+                            <i class="fa-solid fa-briefcase text-vino-600 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Experiencia</h4>
+                                <p class="text-gray-600 text-sm">Docencia universitaria por dos décadas</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-vino-50 transition duration-300">
+                            <i class="fa-solid fa-address-book text-vino-600 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Contacto</h4>
+                                <p class="text-gray-600 text-sm mb-1">
+                                    <i class="fa-solid fa-envelope text-vino-500 mr-1"></i>
+                                    <a href="mailto:marbohor@gmail.com" class="text-vino-600 hover:text-vino-800 font-bold hover:underline transition">marbohor@gmail.com</a>
+                                </p>
+                                <p class="text-gray-600 text-sm">
+                                    <i class="fa-brands fa-whatsapp text-green-600 mr-1 text-lg"></i>
+                                    <a href="https://wa.me/59177797593" target="_blank" class="text-vino-600 hover:text-vino-800 font-bold hover:underline transition">77797593</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-vino-50 p-6 rounded-xl border border-vino-100 hover:bg-vino-100 transition duration-300 hover:shadow-md cursor-default">
+                        <h4 class="font-bold text-vino-900 mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-bullseye"></i> Justificación de la Materia
+                        </h4>
+                        <p class="text-gray-700 text-sm leading-relaxed">
+                            Esta asignatura fortalece la capacidad del futuro docente para comprender el origen y evolución de los sistemas educativos, permitiéndole contextualizar su práctica pedagógica y participar activamente en procesos de transformación educativa con una visión crítica e histórica.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="competencias" class="py-20 bg-vino-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Competencias de la Materia</h2>
+                <div class="h-1 w-24 bg-vino-600 mx-auto rounded"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Perfil y objetivos de aprendizaje fundamentales para el desarrollo del estudiante durante el semestre.</p>
+            </div>
+
+            <div class="flex flex-col gap-8 mb-12 reveal">
+                <!-- Competencia Global -->
+                <div class="bg-white rounded-2xl shadow-sm border border-vino-100 hover:shadow-lg hover:border-vino-300 transition duration-300 overflow-hidden flex flex-col md:flex-row group">
+                    <div class="p-8 md:w-1/2 flex flex-col justify-center group-hover:bg-vino-50 transition duration-300">
+                        <h3 class="text-xl font-bold text-vino-800 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-earth-americas text-2xl"></i> Competencia Global del Área
+                        </h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">
+                            Analiza críticamente la realidad educativa nacional e internacional desde una perspectiva histórica, filosófica, sociocultural y ética, integrando saberes interdisciplinarios para comprender y responder a las necesidades de la comunidad educativa con compromiso social y valores humanistas.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 h-64 md:h-auto relative overflow-hidden">
+                        <img src="globales.png" alt="Competencia Global" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
+                    </div>
+                </div>
+
+                <!-- Competencia de la Asignatura -->
+                <div class="bg-white rounded-2xl shadow-sm border border-vino-100 hover:shadow-lg hover:border-vino-300 transition duration-300 overflow-hidden flex flex-col md:flex-row-reverse group">
+                    <div class="p-8 md:w-1/2 flex flex-col justify-center group-hover:bg-vino-50 transition duration-300">
+                        <h3 class="text-xl font-bold text-vino-800 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-microscope text-2xl"></i> Competencia de la Asignatura
+                        </h3>
+                        <p class="text-gray-700 text-sm leading-relaxed mb-4">
+                            Analiza críticamente los procesos históricos de la educación en distintas épocas y culturas, identificando los principales modelos, corrientes pedagógicas y actores relevantes, para comprender la evolución del pensamiento educativo y su influencia en los sistemas actuales.
+                        </p>
+                        <div class="space-y-3 mt-4 pt-4 border-t border-gray-100">
+                            <div class="flex gap-2 text-sm"><span class="font-bold text-vino-700 w-24 shrink-0">Conceptual:</span> <span class="text-gray-600">Comprende procesos históricos, filosóficos y sociopolíticos que influyen en la educación mundial.</span></div>
+                            <div class="flex gap-2 text-sm"><span class="font-bold text-vino-700 w-24 shrink-0">Procedimental:</span> <span class="text-gray-600">Analiza críticamente hitos y corrientes pedagógicas estableciendo relaciones contextuales.</span></div>
+                            <div class="flex gap-2 text-sm"><span class="font-bold text-vino-700 w-24 shrink-0">Actitudinal:</span> <span class="text-gray-600">Valora la diversidad de enfoques, mostrando respeto por las tradiciones pedagógicas y compromiso.</span></div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 h-64 md:h-auto relative overflow-hidden">
+                        <img src="Gemini_Generated_Image_3cr8nw3cr8nw3cr8.jfif" alt="Competencia de la Asignatura" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Conocimientos Previos y Genéricas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+                <div class="bg-vino-800 text-white p-6 rounded-2xl shadow-md hover:bg-vino-900 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="temario" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contenido de la Materia</h2>
+                <div class="h-1 w-24 bg-vino-600 mx-auto rounded"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Explora los 10 temas fundamentales que abordan la evolución de la educación desde las civilizaciones antiguas hasta la actualidad.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tema 1 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col h-full relative group reveal overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-vino-700 text-white font-bold px-4 py-1 rounded-bl-xl text-sm z-10 transition-colors group-hover:bg-vino-900">TEMA 1</div>
+                    <div class="flex flex-col items-center justify-center text-center transition-all duration-500 ease-in-out group-hover:-translate-y-2 pt-4">
+                        <div class="w-16 h-16 bg-vino-100 text-vino-700 rounded-full flex items-center justify-center text-2xl mb-4 transition-all group-hover:scale-110 group-hover:bg-vino-200 group-hover:text-vino-900">
+                            <!-- Ícono corregido -->
+                            <i class="fa-solid fa-landmark"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 px-2 group-hover:text-vino-800 transition-colors">La Educación en las Civilizaciones Antiguas</h3>
+                    </div>
+                    <div class="grid grid-rows-[0fr] opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 transition-all duration-500 ease-in-out w-full">
+                        <div class="overflow-hidden flex flex-col h-full">
+                            <ul class="text-sm text-gray-600 space-y-2 mb-6 text-left w-full pt-4 border-t border-vino-200 mt-2">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Educación en Egipto</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Educación en Mesopotamia</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Educación en China</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Educación en India</li>
+                            </ul>
+                            <!-- Enlace actualizado -->
+                            <a href="https://www.ulasalle.edu.bo" target="_blank" class="mt-auto w-full bg-vino-700 hover:bg-vino-900 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-300 flex items-center justify-center gap-2 hover:shadow-lg">
+                                <i class="fa-solid fa-file-pdf"></i> Dossier de Lecturas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tema 2 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col h-full relative group reveal overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-vino-700 text-white font-bold px-4 py-1 rounded-bl-xl text-sm z-10 transition-colors group-hover:bg-vino-900">TEMA 2</div>
+                    <div class="flex flex-col items-center justify-center text-center transition-all duration-500 ease-in-out group-hover:-translate-y-2 pt-4">
+                        <div class="w-16 h-16 bg-vino-100 text-vino-700 rounded-full flex items-center justify-center text-2xl mb-4 transition-all group-hover:scale-110 group-hover:bg-vino-200 group-hover:text-vino-900">
+                            <i class="fa-brands fa-monument"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 px-2 group-hover:text-vino-800 transition-colors">Educación en Grecia y Roma</h3>
+                    </div>
+                    <div class="grid grid-rows-[0fr] opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 transition-all duration-500 ease-in-out w-full">
+                        <div class="overflow-hidden flex flex-col h-full">
+                            <ul class="text-sm text-gray-600 space-y-2 mb-6 text-left w-full pt-4 border-t border-vino-200 mt-2">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> La educación en Esparta</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> La educación en Atenas</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Pensamiento pedagógico griego</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> La educación romana</li>
+                            </ul>
+                            <!-- Enlace actualizado -->
+                            <a href="https://www.ulasalle.edu.bo" target="_blank" class="mt-auto w-full bg-vino-700 hover:bg-vino-900 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-300 flex items-center justify-center gap-2 hover:shadow-lg">
+                                <i class="fa-solid fa-file-pdf"></i> Dossier de Lecturas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tema 3 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col h-full relative group reveal overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-vino-700 text-white font-bold px-4 py-1 rounded-bl-xl text-sm z-10 transition-colors group-hover:bg-vino-900">TEMA 3</div>
+                    <div class="flex flex-col items-center justify-center text-center transition-all duration-500 ease-in-out group-hover:-translate-y-2 pt-4">
+                        <div class="w-16 h-16 bg-vino-100 text-vino-700 rounded-full flex items-center justify-center text-2xl mb-4 transition-all group-hover:scale-110 group-hover:bg-vino-200 group-hover:text-vino-900">
+                            <i class="fa-solid fa-chess-rook"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 px-2 group-hover:text-vino-800 transition-colors">Educación en la Edad Media</h3>
+                    </div>
+                    <div class="grid grid-rows-[0fr] opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 transition-all duration-500 ease-in-out w-full">
+                        <div class="overflow-hidden flex flex-col h-full">
+                            <ul class="text-sm text-gray-600 space-y-2 mb-6 text-left w-full pt-4 border-t border-vino-200 mt-2">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Monasterios y conocimiento</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> La escolástica</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Universidades medievales</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Educación y sociedad feudal</li>
+                            </ul>
+                            <!-- Enlace actualizado -->
+                            <a href="https://www.ulasalle.edu.bo" target="_blank" class="mt-auto w-full bg-vino-700 hover:bg-vino-900 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-300 flex items-center justify-center gap-2 hover:shadow-lg">
+                                <i class="fa-solid fa-file-pdf"></i> Dossier de Lecturas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tema 4 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col h-full relative group reveal overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-vino-700 text-white font-bold px-4 py-1 rounded-bl-xl text-sm z-10 transition-colors group-hover:bg-vino-900">TEMA 4</div>
+                    <div class="flex flex-col items-center justify-center text-center transition-all duration-500 ease-in-out group-hover:-translate-y-2 pt-4">
+                        <div class="w-16 h-16 bg-vino-100 text-vino-700 rounded-full flex items-center justify-center text-2xl mb-4 transition-all group-hover:scale-110 group-hover:bg-vino-200 group-hover:text-vino-900">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 px-2 group-hover:text-vino-800 transition-colors">Renacimiento, Humanismo y Reformas</h3>
+                    </div>
+                    <div class="grid grid-rows-[0fr] opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 transition-all duration-500 ease-in-out w-full">
+                        <div class="overflow-hidden flex flex-col h-full">
+                            <ul class="text-sm text-gray-600 space-y-2 mb-6 text-left w-full pt-4 border-t border-vino-200 mt-2">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Humanismo y renovación</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Educación renacentista</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Reforma Protestante</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Contrarreforma católica</li>
+                            </ul>
+                            <!-- Enlace actualizado -->
+                            <a href="https://www.ulasalle.edu.bo" target="_blank" class="mt-auto w-full bg-vino-700 hover:bg-vino-900 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-300 flex items-center justify-center gap-2 hover:shadow-lg">
+                                <i class="fa-solid fa-file-pdf"></i> Dossier de Lecturas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tema 5 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col h-full relative group reveal overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-vino-700 text-white font-bold px-4 py-1 rounded-bl-xl text-sm z-10 transition-colors group-hover:bg-vino-900">TEMA 5</div>
+                    <div class="flex flex-col items-center justify-center text-center transition-all duration-500 ease-in-out group-hover:-translate-y-2 pt-4">
+                        <div class="w-16 h-16 bg-vino-100 text-vino-700 rounded-full flex items-center justify-center text-2xl mb-4 transition-all group-hover:scale-110 group-hover:bg-vino-200 group-hover:text-vino-900">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 px-2 group-hover:text-vino-800 transition-colors">Ilustración y Pensamiento Moderno</h3>
+                    </div>
+                    <div class="grid grid-rows-[0fr] opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 transition-all duration-500 ease-in-out w-full">
+                        <div class="overflow-hidden flex flex-col h-full">
+                            <ul class="text-sm text-gray-600 space-y-2 mb-6 text-left w-full pt-4 border-t border-vino-200 mt-2">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Ilustración y educación</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Rousseau y educación natural</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Pestalozzi y educación integral</li>
+                            </ul>
+                            <!-- Enlace actualizado -->
+                            <a href="https://www.ulasalle.edu.bo" target="_blank" class="mt-auto w-full bg-vino-700 hover:bg-vino-900 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-300 flex items-center justify-center gap-2 hover:shadow-lg">
+                                <i class="fa-solid fa-file-pdf"></i> Dossier de Lecturas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tema 6 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col h-full relative group reveal overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-vino-700 text-white font-bold px-4 py-1 rounded-bl-xl text-sm z-10 transition-colors group-hover:bg-vino-900">TEMA 6</div>
+                    <div class="flex flex-col items-center justify-center text-center transition-all duration-500 ease-in-out group-hover:-translate-y-2 pt-4">
+                        <div class="w-16 h-16 bg-vino-100 text-vino-700 rounded-full flex items-center justify-center text-2xl mb-4 transition-all group-hover:scale-110 group-hover:bg-vino-200 group-hover:text-vino-900">
+                            <i class="fa-solid fa-industry"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 px-2 group-hover:text-vino-800 transition-colors">Revolución Industrial</h3>
+                    </div>
+                    <div class="grid grid-rows-[0fr] opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 transition-all duration-500 ease-in-out w-full">
+                        <div class="overflow-hidden flex flex-col h-full">
+                            <ul class="text-sm text-gray-600 space-y-2 mb-6 text-left w-full pt-4 border-t border-vino-200 mt-2">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Contexto socioeconómico</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Expansión de escuela pública</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Formación para el trabajo</li>
+                            </ul>
+                            <!-- Enlace actualizado -->
+                            <a href="https://www.ulasalle.edu.bo" target="_blank" class="mt-auto w-full bg-vino-700 hover:bg-vino-900 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-300 flex items-center justify-center gap-2 hover:shadow-lg">
+                                <i class="fa-solid fa-file-pdf"></i> Dossier de Lecturas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tema 7 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col h-full relative group reveal overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-vino-700 text-white font-bold px-4 py-1 rounded-bl-xl text-sm z-10 transition-colors group-hover:bg-vino-900">TEMA 7</div>
+                    <div class="flex flex-col items-center justify-center text-center transition-all duration-500 ease-in-out group-hover:-translate-y-2 pt-4">
+                        <div class="w-16 h-16 bg-vino-100 text-vino-700 rounded-full flex items-center justify-center text-2xl mb-4 transition-all group-hover:scale-110 group-hover:bg-vino-200 group-hover:text-vino-900">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 px-2 group-hover:text-vino-800 transition-colors">Educación Boliviana (Preincaica a Colonial)</h3>
+                    </div>
+                    <div class="grid grid-rows-[0fr] opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 transition-all duration-500 ease-in-out w-full">
+                        <div class="overflow-hidden flex flex-col h-full">
+                            <ul class="text-sm text-gray-600 space-y-2 mb-6 text-left w-full pt-4 border-t border-vino-200 mt-2">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Culturas preincaicas</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Imperio Inca</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Época colonial y su impacto</li>
+                            </ul>
+                            <!-- Enlace actualizado -->
+                            <a href="https://www.ulasalle.edu.bo" target="_blank" class="mt-auto w-full bg-vino-700 hover:bg-vino-900 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-300 flex items-center justify-center gap-2 hover:shadow-lg">
+                                <i class="fa-solid fa-file-pdf"></i> Dossier de Lecturas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tema 8 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col h-full relative group reveal overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-vino-700 text-white font-bold px-4 py-1 rounded-bl-xl text-sm z-10 transition-colors group-hover:bg-vino-900">TEMA 8</div>
+                    <div class="flex flex-col items-center justify-center text-center transition-all duration-500 ease-in-out group-hover:-translate-y-2 pt-4">
+                        <div class="w-16 h-16 bg-vino-100 text-vino-700 rounded-full flex items-center justify-center text-2xl mb-4 transition-all group-hover:scale-110 group-hover:bg-vino-200 group-hover:text-vino-900">
+                            <i class="fa-solid fa-flag"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 px-2 group-hover:text-vino-800 transition-colors">Educación Boliviana (Independencia)</h3>
+                    </div>
+                    <div class="grid grid-rows-[0fr] opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 transition-all duration-500 ease-in-out w-full">
+                        <div class="overflow-hidden flex flex-col h-full">
+                            <ul class="text-sm text-gray-600 space-y-2 mb-6 text-left w-full pt-4 border-t border-vino-200 mt-2">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Periodo independentista</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Políticas republicanas</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Educadores y reformadores</li>
+                            </ul>
+                            <!-- Enlace actualizado -->
+                            <a href="https://www.ulasalle.edu.bo" target="_blank" class="mt-auto w-full bg-vino-700 hover:bg-vino-900 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-300 flex items-center justify-center gap-2 hover:shadow-lg">
+                                <i class="fa-solid fa-file-pdf"></i> Dossier de Lecturas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tema 9 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col h-full relative group reveal overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-vino-700 text-white font-bold px-4 py-1 rounded-bl-xl text-sm z-10 transition-colors group-hover:bg-vino-900">TEMA 9</div>
+                    <div class="flex flex-col items-center justify-center text-center transition-all duration-500 ease-in-out group-hover:-translate-y-2 pt-4">
+                        <div class="w-16 h-16 bg-vino-100 text-vino-700 rounded-full flex items-center justify-center text-2xl mb-4 transition-all group-hover:scale-110 group-hover:bg-vino-200 group-hover:text-vino-900">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 px-2 group-hover:text-vino-800 transition-colors">Educación Boliviana (Siglos XX y XXI)</h3>
+                    </div>
+                    <div class="grid grid-rows-[0fr] opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 transition-all duration-500 ease-in-out w-full">
+                        <div class="overflow-hidden flex flex-col h-full">
+                            <ul class="text-sm text-gray-600 space-y-2 mb-6 text-left w-full pt-4 border-t border-vino-200 mt-2">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Escuela Ayllu de Warisata</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Reformas del siglo XX</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Ley Avelino Siñani - Elizardo Pérez</li>
+                            </ul>
+                            <!-- Enlace actualizado -->
+                            <a href="https://www.ulasalle.edu.bo" target="_blank" class="mt-auto w-full bg-vino-700 hover:bg-vino-900 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-300 flex items-center justify-center gap-2 hover:shadow-lg">
+                                <i class="fa-solid fa-file-pdf"></i> Dossier de Lecturas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tema 10 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col h-full relative group reveal overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-vino-700 text-white font-bold px-4 py-1 rounded-bl-xl text-sm z-10 transition-colors group-hover:bg-vino-900">TEMA 10</div>
+                    <div class="flex flex-col items-center justify-center text-center transition-all duration-500 ease-in-out group-hover:-translate-y-2 pt-4">
+                        <div class="w-16 h-16 bg-vino-100 text-vino-700 rounded-full flex items-center justify-center text-2xl mb-4 transition-all group-hover:scale-110 group-hover:bg-vino-200 group-hover:text-vino-900">
+                            <i class="fa-solid fa-earth-americas"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 px-2 group-hover:text-vino-800 transition-colors">Educación en Latinoamérica y el Mundo</h3>
+                    </div>
+                    <div class="grid grid-rows-[0fr] opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 transition-all duration-500 ease-in-out w-full">
+                        <div class="overflow-hidden flex flex-col h-full">
+                            <ul class="text-sm text-gray-600 space-y-2 mb-6 text-left w-full pt-4 border-t border-vino-200 mt-2">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Tendencias educativas</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Movimientos contemporáneos</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-vino-500 mt-1"></i> Educación y globalización</li>
+                            </ul>
+                            <!-- Enlace actualizado -->
+                            <a href="https://www.ulasalle.edu.bo" target="_blank" class="mt-auto w-full bg-vino-700 hover:bg-vino-900 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-300 flex items-center justify-center gap-2 hover:shadow-lg">
+                                <i class="fa-solid fa-file-pdf"></i> Dossier de Lecturas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="evaluacion" class="py-20 bg-white border-y border-gray-200 relative overflow-hidden">
+        <div class="absolute -right-20 -top-20 w-64 h-64 bg-vino-50 rounded-full opacity-50"></div>
+        <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-vino-50 rounded-full opacity-50"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">División por Fases y Evaluación</h2>
+                <div class="h-1 w-24 bg-vino-600 mx-auto rounded"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Distribución porcentual del avance y calificación de la asignatura a lo largo del semestre académico.</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-center items-stretch gap-8 max-w-5xl mx-auto">
+                <!-- Fase 1 -->
+                <div class="w-full md:w-1/3 bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transform transition duration-300 hover:-translate-y-2 hover:border-vino-300 hover:bg-vino-50 hover:shadow-xl relative flex flex-col justify-center reveal group">
+                    <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-vino-700 text-white font-bold text-xl w-12 h-12 rounded-full flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-vino-900 transition-all">1</div>
+                    <div class="text-center mt-4">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Primera Fase</h3>
+                        <p class="text-vino-600 font-medium mb-4">Temas 1, 2, 3 y 4</p>
+                        <div class="text-5xl font-extrabold text-vino-800 mb-2 group-hover:scale-105 transition-transform">35%</div>
+                        <p class="text-sm text-gray-500 uppercase tracking-widest">del avance total</p>
+                    </div>
+                </div>
+
+                <!-- Fase 2 -->
+                <div class="w-full md:w-1/3 bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transform transition duration-300 hover:-translate-y-2 hover:border-vino-300 hover:bg-vino-50 hover:shadow-xl relative flex flex-col justify-center reveal group" style="transition-delay: 100ms;">
+                    <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-vino-700 text-white font-bold text-xl w-12 h-12 rounded-full flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-vino-900 transition-all">2</div>
+                    <div class="text-center mt-4">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Segunda Fase</h3>
+                        <p class="text-vino-600 font-medium mb-4">Temas 5, 6, 7 y 8</p>
+                        <div class="text-5xl font-extrabold text-vino-800 mb-2 group-hover:scale-105 transition-transform">35%</div>
+                        <p class="text-sm text-gray-500 uppercase tracking-widest">del avance total</p>
+                    </div>
+                </div>
+
+                <!-- Final -->
+                <div class="w-full md:w-1/3 bg-vino-800 text-white rounded-2xl p-8 shadow-xl transform transition duration-300 hover:-translate-y-2 hover:bg-vino-900 hover:shadow-2xl relative flex flex-col justify-center reveal group" style="transition-delay: 200ms;">
+                    <div class="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-bl-full"></div>
+                    </div>
+                    <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-vino-900 text-white border-2 border-vino-600 font-bold text-xl w-12 h-12 rounded-full flex items-center justify-center shadow-md z-10 group-hover:scale-110 transition-all group-hover:bg-vino-950"><i class="fa-solid fa-flag-checkered text-sm"></i></div>
+                    <div class="text-center mt-4 relative z-10">
+                        <h3 class="text-xl font-bold text-white mb-2">Examen Final</h3>
+                        <p class="text-vino-200 font-medium mb-4">Temas 9 y 10</p>
+                        <div class="text-5xl font-extrabold text-white mb-2 group-hover:scale-105 transition-transform">30%</div>
+                        <p class="text-xs text-vino-300 uppercase tracking-widest">del avance total</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="biblioteca" class="py-20 bg-vino-900 text-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <i class="fa-solid fa-book-bookmark text-5xl mb-6 text-vino-200 hover:scale-110 hover:text-white transition duration-300 cursor-default"></i>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Recursos de Biblioteca Digital</h2>
+            <p class="text-vino-100 mb-10">
+                Accede a los recursos académicos y científicos de la biblioteca digital para consultar libros electrónicos, artículos científicos y otras fuentes de información que apoyen tu aprendizaje y tus trabajos de investigación.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <!-- Botón eLibro -->
+                <a href="https://www.ulasalle.edu.bo" target="_blank" class="flex flex-col items-center bg-white text-vino-900 p-6 rounded-2xl shadow-xl hover:bg-vino-50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 w-full sm:w-64 group border-2 border-transparent hover:border-vino-300">
+                    <i class="fa-solid fa-book text-4xl mb-3 text-vino-700 group-hover:scale-110 group-hover:text-vino-900 transition-all"></i>
+                    <span class="font-bold text-xl mb-2">eLibro</span>
+                    <span class="text-xs text-center text-gray-600">Libros electrónicos y bibliografía académica</span>
+                </a>
+
+                <!-- Botón EBSCO -->
+                <a href="https://www.ulasalle.edu.bo" target="_blank" class="flex flex-col items-center bg-white text-vino-900 p-6 rounded-2xl shadow-xl hover:bg-vino-50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 w-full sm:w-64 group border-2 border-transparent hover:border-vino-300">
+                    <i class="fa-solid fa-database text-4xl mb-3 text-vino-700 group-hover:scale-110 group-hover:text-vino-900 transition-all"></i>
+                    <span class="font-bold text-xl mb-2">EBSCOhost</span>
+                    <span class="text-xs text-center text-gray-600">Artículos, revistas y bases de datos especializadas</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-vino-950 text-vino-200 py-6 text-center text-sm border-t border-vino-800">
+        <p>&copy; 2026 Universidad La Salle Bolivia. Asignatura: EDU-315.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+            
+            reveals.forEach(reveal => {
+                observer.observe(reveal);
+            });
+        });
+    </script>
+</body>
+</html>
